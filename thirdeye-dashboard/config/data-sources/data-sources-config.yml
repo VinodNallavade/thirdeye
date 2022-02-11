@@ -1,16 +1,16 @@
 
 # Please put the mock data source as the first in this configuration.
 dataSourceConfigs:
-  - className: org.apache.pinot.thirdeye.datasource.pinot.PinotThirdEyeDataSource
-    properties:
-        zookeeperUrl: 'localhost:12913'
-        clusterName: 'QuickStartCluster'
-        controllerConnectionScheme: 'http'
-        controllerHost: '172.17.0.2'
-        controllerPort: 9000
-        cacheLoaderClassName: org.apache.pinot.thirdeye.datasource.pinot.PinotControllerResponseCacheLoader
-    metadataSourceConfigs:
-      - className: org.apache.pinot.thirdeye.auto.onboard.AutoOnboardPinotMetadataSource
+  # - className: org.apache.pinot.thirdeye.datasource.pinot.PinotThirdEyeDataSource
+    # properties:
+        # zookeeperUrl: 'localhost:12913'
+        # clusterName: 'QuickStartCluster'
+        # controllerConnectionScheme: 'http'
+        # controllerHost: '172.17.0.2'
+        # controllerPort: 9000
+        # cacheLoaderClassName: org.apache.pinot.thirdeye.datasource.pinot.PinotControllerResponseCacheLoader
+    # metadataSourceConfigs:
+      # - className: org.apache.pinot.thirdeye.auto.onboard.AutoOnboardPinotMetadataSource
   - className: org.apache.pinot.thirdeye.datasource.mock.MockThirdEyeDataSource
     properties:
       H2:
