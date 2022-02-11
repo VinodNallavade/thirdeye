@@ -14,7 +14,7 @@ server:
   requestLog:
     type: external
 alert: false
-autoload: false
+autoload: true
 holidayEventsLoader: false
 mockEventsLoader: true
 monitor: false
