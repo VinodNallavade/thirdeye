@@ -1,42 +1,31 @@
-
 # Please put the mock data source as the first in this configuration.
 dataSourceConfigs:
-  # - className: org.apache.pinot.thirdeye.datasource.pinot.PinotThirdEyeDataSource
-    # properties:
-         # zookeeperUrl: 'localhost:2181'
-         # clusterName: 'QuickStartCluster'
-         # controllerConnectionScheme: 'http'
-         # controllerHost: '52.140.125.124'
-         # controllerPort: 9000
-         # cacheLoaderClassName: org.apache.pinot.thirdeye.datasource.pinot.PinotControllerResponseCacheLoader
-    # metadataSourceConfigs:
-       # - className: org.apache.pinot.thirdeye.auto.onboard.AutoOnboardPinotMetadataSource
-  - classname: org.apache.pinot.thirdeye.datasource.mock.mockthirdeyedatasource
+  - className: org.apache.pinot.thirdeye.datasource.mock.MockThirdEyeDataSource
     properties:
-      h2:
+      H2:
         db: jdbc:h2:./config/h2db
         user: sa
         password: sa
         datasets:
-          - tablename: "h2.h2.total_pageviews"
-            timecolumn: "timestamp"
-            granularity: "1days"
-            timeformat: "yyyy-mm-dd"
+          - tableName: "H2.H2.total_pageviews"
+            timeColumn: "timestamp"
+            granularity: "1DAYS"
+            timeFormat: "yyyy-MM-dd"
             dimensions: [country, device]
-            timezone: "utc"
+            timezone: "UTC"
             metrics:
-              pageviews: "sum"
-            datafile: "pageviews.csv"
+              pageviews: "SUM"
+            dataFile: "pageviews.csv"
 
-      populatemetadata: true
+      populateMetaData: true
       lookback: 90
       datasets:
         tracking:
           granularity: "1hour"
-          timezone: "america/los_angeles"
+          timezone: "America/Los_Angeles"
           dimensions: [country, browser, platform]
           metrics:
-            pageviews:
+            pageViews:
               us:
                 chrome:
                   desktop:
@@ -116,7 +105,7 @@ dataSourceConfigs:
                     mean: 32
                     std: 9
 
-            adimpressions:
+            adImpressions:
               us:
                 chrome:
                   desktop:
@@ -146,7 +135,7 @@ dataSourceConfigs:
 
         business:
           granularity: "1day"
-          timezone: "america/los_angeles"
+          timezone: "America/Los_Angeles"
           dimensions: [country, browser]
           metrics:
             purchases:
@@ -213,26 +202,26 @@ dataSourceConfigs:
                   mean: 20
                   std: 3
 
-  - classname: org.apache.pinot.thirdeye.datasource.sql.sqlthirdeyedatasource
+  - className: org.apache.pinot.thirdeye.datasource.sql.SqlThirdEyeDataSource
     properties:
-      h2:
+      H2:
         db: jdbc:h2:./config/h2db
         user: sa
         password: sa
         datasets:
-          - tablename: "h2.h2.daily"
-            timecolumn: "date"
-            granularity: "1days"
-            timeformat: "yyyy-mm-dd"
-            timezone: "utc"
+          - tableName: "H2.H2.daily"
+            timeColumn: "date"
+            granularity: "1DAYS"
+            timeFormat: "yyyy-MM-dd"
+            timezone: "UTC"
             metrics:
-              value: "sum"
-            datafile: "daily.csv"
-          - tablename: "h2.h2.hourly"
-            timecolumn: "datetime"
-            granularity: "1hours"
-            timeformat: "yyyy-mm-dd hh:mm:ss"
-            timezone: "utc"
+              value: "SUM"
+            dataFile: "daily.csv"
+          - tableName: "H2.H2.hourly"
+            timeColumn: "datetime"
+            granularity: "1HOURS"
+            timeFormat: "yyyy-MM-dd HH:mm:ss"
+            timezone: "UTC"
             metrics:
-              value: "sum"
-            datafile: "hourly.csv"
+              value: "SUM"
+            dataFile: "hourly.csv"
