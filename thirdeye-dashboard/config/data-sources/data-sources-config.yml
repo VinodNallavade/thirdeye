@@ -9,7 +9,7 @@ dataSourceConfigs:
          controllerHost: '52.140.125.114'
          controllerPort: 9000
          cacheLoaderClassName: org.apache.pinot.thirdeye.datasource.pinot.PinotControllerResponseCacheLoader
-     metadataSourceConfigs:
+    metadataSourceConfigs:
        - className: org.apache.pinot.thirdeye.auto.onboard.AutoOnboardPinotMetadataSource
   # - className: org.apache.pinot.thirdeye.datasource.mock.MockThirdEyeDataSource
     # properties:
